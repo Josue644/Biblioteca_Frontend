@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="stylesheet" href="css/style-chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <!-- Meta etiquetas, comentarios e iconos -->
+    <link rel="icon" href="img/imagen-transparent.png" type="image/png">
+    <meta name="description" content="Bienvenido a la biblioteca, donde puedes encontrar una amplia variedad de libros y recursos para satisfacer tus necesidades de lectura. Explora nuestra colección y descubre nuevas historias que te inspirarán.">
+    <meta name="keywords" content="biblioteca, libros, lectura, recursos, historias, inspiración">
+    <meta name="author" content="Josue">
+    <meta name="OG:title" content="Biblioteca">
+    <meta name="OG:description" content="Bienvenido a la biblioteca, donde puedes encontrar una amplia variedad de libros y recursos">
+    <meta name="OG:image" content="img/imagen.jpg">
+    <meta name="OG:url" content="https://www.biblioteca.com"> 
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <form class="sidebar__form">
+                <input type="checkbox" id="open-menu">
+                <label class="material-symbols-outlined" for="open-menu">close</label>
+                <label class="material-symbols-outlined open-button" for="open-menu">double_arrow
+                </label>
+            </form>
+            <picture class="sidebar__picture">
+                <source srcset="img/logo-small.png" media="(max-width:57.5rem)">
+                <img src="img/logo.png">
+            </picture>
+            <nav class="sidebar__nav">
+                <ul>
+                    <li class="sidebar__item">
+                        <span class="material-symbols-outlined">Mail</span>
+                        <a href="message.html">Messages</a>
+                    </li>
+                    <li class="sidebar__item">
+                        <span class="material-symbols-outlined">Group</span>
+                        <a href="group.html">Group</a>
+                    </li>
+                    <li class="sidebar__item">
+                        <span class="material-symbols-outlined">Question_mark</span>
+                        <a href="question.html">Preguntas</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar__profile">
+                <ul>
+                    <li class="sidebar__item item--profile">
+                        <img src="img/imagen-small.png">
+                        <span class="profile-option material-symbols-outlined">Rocket_launch</span>
+                        <a href="index.html">PROFILE</a>
+                    </li>
+                    <li class="sidebar__item">
+                        <span class="material-symbols-outlined">Logout</span>
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="chat">
+            <div class="chat__user">
+                <img src="img/imagen-small.png" alt="">
+                <p>BiblioBot</p>
+                <span class="material-symbols-outlined"> menu_book</span>
+            </div>
+            <div class="chat__content">
+                <!-- MSG 1 -->
+                <div class="msg">
+                    <p class="msg__content">
+                        ¡Hola! 👋 Bienvenido al sistema de atención en línea de la Biblioteca Central Universitaria Mi nombre es BiblioBot y estoy aquí para ayudarte con cualquier duda o inconveniente relacionado con nuestros servicios ¿Podrías contarme en qué necesitas ayuda hoy?
+                    </p>
+                </div>
+
+                <!-- MSG 2 -->
+                <div class="msg self">
+                    <p class="msg__content">
+                        Hola BiblioBot, gracias. Estoy tratando de acceder a la red WiFi de la biblioteca desde mi notebook pero no me deja conectar. La red aparece pero no se conecta y me muestra un error
+                    </p>
+                </div>
+
+                <!-- MSG 3 -->
+                <div class="msg self">
+                    <p class="msg__content">
+                        El nombre de la red aparece normal, se llama "Biblioteca-WiFi". El problema solo me pasa en mi notebook, el celular se conecta sin problema El mensaje que aparece es “Error de autenticación”
+                    </p>
+                </div>
+
+                <!-- MSG 4 -->
+                <div class="msg">
+                    <p class="msg__content">
+                        Gracias por compartir esos detalles. El mensaje “Error de autenticación” suele estar relacionado con la contraseña o con un conflicto temporal entre el dispositivo y el punto de acceso. 
+                    </p>
+                </div>
+
+                <!-- MSG 5 -->
+                <div class="msg">
+                    <p class="msg__content">
+                        Si luego de intentar todo esto aún no puedes conectarte, puedes acercarte al mostrador de soporte técnico en el segundo piso o escribirnos nuevamente por aquí
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

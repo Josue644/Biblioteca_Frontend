@@ -1,0 +1,352 @@
+*{
+    box-sizing: border-box;
+}
+
+body,div,ul,li,a,h1,h2,h3,h4{
+    margin: 0;
+    padding: 0;
+}
+
+label, .sidebar__nav{
+    user-select: none;
+}
+
+body{
+    --bg-color: color-mix(in srgb, #48e 70%, #fff);
+    --sidebar-color: #fff;
+    --dark-color: #48e;
+    --text-color: #444;
+    --chat-bg-color:#fff;
+    background-color: var(--bg-color);
+    font-family: Montserrat;
+}
+
+/* LAYOUT STYLES */
+.layout{
+    display: flex;
+}
+
+/* SIDEBAR STYLES */
+
+.sidebar{
+    background-color: var(--sidebar-color);
+    position: fixed;
+    height: 100dvh;
+    width: clamp(200px, 20vw, 300px);
+    font-size: clamp(1rem, 2.2vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0px 30px 6px;
+}
+
+.sidebar__nav{
+    flex: 1;
+    display: flex;
+}
+
+.sidebar__nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.sidebar__item{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: .9rem;
+    padding-right: 6px;
+    color: var(--dark-color);
+    border-radius: 36px 0 0 36px;
+    position: relative;
+}
+
+.sidebar__item span{
+    padding: 12px;
+    font-size: 2rem;
+}
+
+.sidebar__item a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar__item:hover{
+    background-color: var(--bg-color);
+    color: var(--sidebar-color);
+}
+
+.sidebar__item::before,
+.sidebar__item::after{
+    content: '';
+    background-color: var(--bg-color);
+    position: absolute;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+}
+
+.sidebar__item:hover::before{
+    top: -18px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 4px 4px 0 4px var(--bg-color);
+}
+
+.sidebar__item:hover::after{
+    bottom: -18px;
+    border-top-right-radius: 25px;
+    box-shadow: 4px -4px 0 4px var(--bg-color);
+}
+
+/* SIDEBAR PICTURE STYLES */
+
+.sidebar__picture{
+    margin-left: 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.sidebar__picture img{
+    width: clamp(4rem, 75%, 20rem);
+    margin: auto;
+    opacity: .82;
+    filter: hue-rotate(-22deg);
+}
+
+/* SIDEBAR PROFILE MENU STYLES */
+
+.sidebar__profile img{
+    border-radius: 50%;
+    width: 2rem;
+}
+
+.item--profile .profile-option{
+    font-size: .9rem;
+    padding: 0px 12px 0px 9px ;
+    color: inherit;
+}
+
+.item--profile{
+    margin: 12px;
+    width: fit-content;
+    color: var(--text-color);
+}
+
+.item--profile:hover{
+    border-radius: 25px;
+    color: var(--sidebar-color);
+}
+
+.item--profile:hover img{
+    opacity: .7;
+}
+
+.item--profile::before, .item--profile::after{
+    display: none;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.sidebar__form{
+    position: absolute;
+    z-index: 20;
+    right: -1rem;
+}
+
+.sidebar__form .open-button{
+    display: none;
+}
+
+.sidebar label{
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--sidebar-color);
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: .4rem;
+}
+
+.sidebar label::before,
+.sidebar label::after{
+    content: '';
+    background-color: var(--bg-color);
+    position: absolute;
+    width: 13px;
+    height: 25px;  
+    background-color: transparent;
+}
+
+.sidebar label::before{
+    top: -25px;
+    left: 19px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 4px 4px 0 4px var(--bg-color);
+}
+
+.sidebar label::after{
+    bottom: -25px;
+    left: 19px;
+    border-top-right-radius: 25px;
+    box-shadow: 4px -4px 0 4px var(--bg-color);
+}
+
+input[type="checkbox"]:checked ~ label{
+    color: var(--bg-color);
+    background-color: var(--sidebar-color);
+}
+
+input[type="checkbox"]:checked ~ label::after,
+input[type="checkbox"]:checked ~ label::before{
+    display: none;
+}
+
+.sidebar:has(input[type="checkbox"]:checked){
+    width: fit-content;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) .sidebar__form label{
+    display: none;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) .sidebar__form .open-button{
+    display: block;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) .sidebar__form{
+    top: 4.8rem;
+    width: fit-content;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) .sidebar__picture img{
+    max-width: 3.4rem;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) .sidebar__picture{
+    margin-left: 0;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) picture{
+    width: fit-content;
+    margin-left: .75rem;
+}
+
+.sidebar:has(input[type="checkbox"]:checked) :is(.sidebar__item a, .profile-option){
+    display: none;
+}
+
+/* CHAT STYLES */
+
+.chat{
+    max-width: clamp(300px, 70%, 900px);
+    background-color: var(--chat-bg-color);
+    margin: 100px auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 6px #0003;
+    z-index: -1;
+}
+
+.chat__user{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.chat__user img{
+    max-width: 2.4rem;
+    border-radius: 50%;
+    margin: 4px;
+}
+
+.chat__content{
+    padding: 12px;
+}
+
+.msg{
+    background-color: var(--bg-color);
+    color: #fff;
+    font-size: .6rem;
+    padding: 7px;
+    border-radius: 9px 9px 9px 0;
+    position: relative;
+    z-index: 10;
+    max-width: clamp(300px, 70%, 600px);
+    margin: 6px;
+    width: fit-content;
+}
+
+.msg::before{
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background-color: var(--bg-color);
+    bottom: -3px;
+    left: -4px;
+    clip-path: polygon(43% 0%, 0% 100%, 100% 68%);
+    z-index: -1;
+}
+
+.self{
+    background-color: var(--dark-color);
+    margin-left: auto;
+    border-radius: 9px 9px 0 9px;
+}
+
+.self::before{
+    background-color: var(--dark-color);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 68%);
+    bottom: -3px;
+    left: auto;
+    right: -4px;
+}
+
+@media screen and (max-width: 767px) {
+
+    .layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "sidebar"
+            "chat";
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        width: 100%;
+    }
+
+    .sidebar__picture img{
+        width: 90%;
+        max-width: 18rem;
+    }
+
+    .chat {
+        max-width: 700px;
+        grid-area: chat;
+        margin: 50px 20px 0 100px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+
+
+    .sidebar__picture img{
+        width: clamp(6rem, 60%, 18rem);
+    }
+
+    .open-button{
+        margin-top: 20px;
+    }
+
+    .chat {
+        max-width: 780px;
+        margin: 100px 20px 0 100px;
+    }
+}
